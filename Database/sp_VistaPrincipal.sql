@@ -8,7 +8,7 @@ GO
 -- Create date: <Create Date,26/02/2019>
 -- Description:	<Description,CREA UN SELECT PARA ARROJAR LAS CONSULTAS  DE LA VISTA PRINCIAL>
 -- =============================================
-CREATE PROCEDURE <Procedure_Name, sysname, ProcedureName>
+CREATE PROCEDURE sp_VistaPrincipal
 
 AS
 BEGIN
@@ -19,7 +19,7 @@ BEGIN
     -- Insert statements for procedure here
 		SELECT ENVIADO,FECHACAPTURA,EXISTEFISICAMENTE,RECIBIDO,NOMBREDESTINO,DIRECCIONDESTINO,NOMBREREMITENTE,CARGO,[DIRECCION ORIGEN],TIPODOCUMENTO
 			 FROM dbo.VistaPrincipal
-			 ORDER BY   ENVIADO, FechaCaptura ASC 
+			 ORDER BY   ENVIADO, FechaCaptura ASC
 
 
 
