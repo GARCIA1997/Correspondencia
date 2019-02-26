@@ -1,34 +1,35 @@
 /*** Base de datos para llevar el control de la correspondencia del Complejo Administrativo de Colima***/
 
-/*** Creada por el estudiante de Ingenieria en sistemas computacionales: Alejandro Garcia Alvarez, como respuesta 
+/*** Creada por el estudiante de Ingenieria en sistemas computacionales: Alejandro Garcia Alvarez, como respuesta
 	 a la problematica del sistema de correspondencia actual 2008-2019 del area de la Secretaria de Desarrollo Rural
-	 del estado de Colima ***/ 
+	 del estado de Colima ***/
 
- /*** Ingeniero a cargo 
+ /*** Ingeniero a cargo
 		  ISC. Alejandro Dias   ***/
 
 /*** Sistema  de Correspondencia a cargo de los Alumnos del Tecnologico Nacional de Mexico/Tecnologico de Colima
-	 de la carrera en Ingenieria en sistemas computacionales  
+	 de la carrera en Ingenieria en sistemas computacionales
 	 Avalos Barrales Jessy
-	 Garcia Alvarez Alejandro 
+	 Garcia Alvarez Alejandro
 	 Martinez Verduzco Saharabi Guadalupe
 	 ***/
 
 /*** Fecha de Inicio de la creacionde la base de datos 18/02/2019 ***/
 
 
+
 /*** CREACION DE LA BASE DE DATOS LLAMADA cORRESPONDENCIA ***/
 CREATE DATABASE [CORRESPONDENCIA]
 
-GO 
+GO
 
 USE [CORRESPONDENCIA]
 
-GO 
+GO
 
 /*** CREAACION DE LAS TABLAS QUE CORRESPONDERAN A LA BASE DE DATOS ***/
 
-CREATE TABLE [TBL_DOCUMENTOS] 
+CREATE TABLE [TBL_DOCUMENTOS]
 	(
 		ID_DOCUMENTO INT IDENTITY  NOT NULL,
 		ID_REMITENTE INT NOT NULL,
@@ -42,13 +43,13 @@ CREATE TABLE [TBL_DOCUMENTOS]
 		ESTADO  BIT DEFAULT 0 NOT NULL,
 		RESPUESTA VARCHAR (500),
 		RESUMEN VARCHAR (500),
-		IMAGEN IMAGE, 
-		COPIA_FISICA BIT DEFAULT 0	NOT NULL 	 	
+		IMAGEN IMAGE,
+		COPIA_FISICA BIT DEFAULT 0	NOT NULL
 	);
-	
+
 /*** CREACION DE LOS CATALOGOS ***/
 GO
-CREATE TABLE [CAT_USUARIO] 
+CREATE TABLE [CAT_USUARIO]
 	(
 		ID_USUARIO INT IDENTITY  NOT NULL,
 		ID_DIRECCION INT NOT NULL,
@@ -62,7 +63,7 @@ CREATE TABLE [CAT_USUARIO]
 CREATE  TABLE [CAT_DIRECCION]
 	(
 		ID_DIRECCION INT IDENTITY  NOT NULL,
-		NOMBRE VARCHAR (60) NOT NULL, 
+		NOMBRE VARCHAR (60) NOT NULL,
 	);
 	GO
 CREATE TABLE [CAT_ORIGENES]
@@ -71,7 +72,7 @@ CREATE TABLE [CAT_ORIGENES]
 		NOMBRE VARCHAR (50) NOT NULL
 	);
 	GO
-CREATE TABLE [CAT_REMITENTES] 
+CREATE TABLE [CAT_REMITENTES]
 	(
 		ID_REMITENTE INT IDENTITY  NOT NULL,
 		ID_ORIGEN INT,
@@ -89,21 +90,21 @@ CREATE TABLE [CAT_TIPO]
 
 /*** DECLARACION DE LAS LLAVES PRIMARIAS DE LAS TABLAS Y CATALOGOS ***/
 GO
-ALTER TABLE [TBL_DOCUMENTOS] 
+ALTER TABLE [TBL_DOCUMENTOS]
 	ADD CONSTRAINT PK_ID_DOCUMENTO PRIMARY KEY (ID_DOCUMENTO);
-GO 
+GO
 ALTER TABLE [CAT_USUARIO]
 	ADD CONSTRAINT PK_ID_USUARIO PRIMARY KEY (ID_USUARIO);
 GO
-ALTER TABLE [CAT_DIRECCION] 
+ALTER TABLE [CAT_DIRECCION]
 	ADD CONSTRAINT PK_ID_DIRECCION PRIMARY KEY (ID_DIRECCION);
-GO 
-ALTER TABLE [CAT_ORIGENES] 
+GO
+ALTER TABLE [CAT_ORIGENES]
 	ADD CONSTRAINT PK_ID_ORIGEN PRIMARY KEY (ID_ORIGEN);
-GO 
+GO
 ALTER TABLE [CAT_REMITENTES]
 	ADD CONSTRAINT PK_ID_REMITENTE PRIMARY KEY (ID_REMITENTE);
-GO 
+GO
 ALTER TABLE [CAT_TIPO]
 	ADD CONSTRAINT PR_ID_TIPO PRIMARY KEY (ID_TIPO);
 
@@ -142,4 +143,3 @@ ALTER TABLE CAT_USUARIO ADD TELEFONO VARCHAR(10);
 
 ALTER TABLE CAT_REMITENTES ADD CORREO VARCHAR(50);
 ALTER TABLE CAT_REMITENTES ADD TELEFONO VARCHAR(10);
-
